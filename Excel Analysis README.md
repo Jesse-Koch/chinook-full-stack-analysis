@@ -8,9 +8,9 @@ Second stage of the pipeline. SQL query results exported as CSVs, then reshaped 
 Deliberate re-solving of several relational problems already handled in SQL, using Excel's own tools, to demonstrate the same underlying logic across two different environments.
  
 ## Workbook Structure
-- **Lookup Practice** — VLOOKUP and XLOOKUP exercises resolving a raw foreign key (SupportRepId) into a readable employee name, including both functions' native fallback handling and an IFERROR()-wrapped alternative
-- **Power Query Merge** — the same Customer Spend / Employees relationship, rebuilt using Power Query's Merge Queries tool
-- **Stakeholder Summary** — the final presentable report: KPI cells, PivotTables, PivotCharts, and conditional formatting
+- **Lookup Practice** - VLOOKUP and XLOOKUP exercises resolving a raw foreign key (SupportRepId) into a readable employee name, including both functions' native fallback handling and an IFERROR()-wrapped alternative
+- **Power Query Merge** - the same Customer Spend / Employees relationship, rebuilt using Power Query's Merge Queries tool
+- **Stakeholder Summary** - the final presentable report: KPI cells, PivotTables, PivotCharts, and conditional formatting
 
 ## Skills Demonstrated
 - VLOOKUP and XLOOKUP, including XLOOKUP's built-in not-found fallback argument versus VLOOKUP requiring an external IFERROR() wrapper to achieve the same result
