@@ -17,13 +17,13 @@ Final stage of the pipeline. The Chinook database is connected directly (via MyS
 **Self-join workaround:** Power BI's relationship dialog does not allow selecting the same table on both sides of a relationship. Resolved by duplicating the Employee table in Power Query to create `EmployeeManager` — a role-playing dimension representing the same underlying data in a second role. `Employee[ReportsTo]` connects to `EmployeeManager[EmployeeId]`, allowing each employee's manager to be looked up via `RELATED()`.
 
 ## Report Structure
-- **Page 1 — Executive Summary**: KPI cards (Total Revenue, Total Customers, Total Invoices, Avg Invoice Value), genre revenue chart, top 10 artists, headline finding
-- **Page 2 — Catalogue Performance**: Artist → Album → Track drill-down chart, genre revenue with % of total
-- **Page 3 — Customer & Employee**: employee portfolio table, revenue-by-country treemap, customer spend tier breakdown, reporting hierarchy table
-- **Page 4 — Revenue Trend**: YTD/prior-year/YoY growth cards, monthly revenue trend line chart, yearly summary table, data quality caveat
+- **Executive Summary**: KPI cards (Total Revenue, Total Customers, Total Invoices, Avg Invoice Value), genre revenue chart, top 10 artists, headline finding
+- **Catalogue Performance**: Artist → Album → Track drill-down chart, genre revenue with % of total
+- **Customer & Employee**: employee portfolio table, revenue-by-country treemap, customer spend tier breakdown, reporting hierarchy table
+- **Revenue Stats**: YTD/prior-year/YoY growth cards, monthly revenue trend line chart, yearly summary table, data quality caveat
 
 ## Skills Demonstrated
-- **Data modeling**: star schema design, direct database connection, role-playing dimension pattern for self-referencing relationships
+- **Data modeling**: star schema design, direct database connection
 - **DAX aggregation**: SUMX (row-by-row revenue calculation), DISTINCTCOUNT
 - **DAX safety**: DIVIDE for divide-by-zero protection
 - **Relationships**: RELATED(), used both for genre lookup on Track and manager lookup via the duplicated Employee table
@@ -38,14 +38,14 @@ Findings from the SQL phase were independently re-derived through DAX and Power 
 - Artist Revenue Rank (RANKX) confirms Iron Maiden as the top revenue artist at $138.60, matching the SQL DENSE_RANK result
 - YoY Growth% (time intelligence) matches the year-over-year figures originally calculated with SQL's LAG()
 - The reporting hierarchy reconstructed via RELATED() matches the SQL self-join result exactly
-- Employee portfolio comparison confirms the same Jane Peacock / Steve Johnson total-spend-vs-per-customer-value distinction found in SQL
+- Employee portfolio comparison confirms the same Jane Peacock / Steve Johnson total spend vs. per customer value distinction found in SQL
 
 ## Notable Debugging Moments
 - The `% of Total Revenue` measure initially had its numerator and denominator reversed (grand total divided by the filtered value rather than the reverse), producing results greater than 100%. Fixed by swapping the arguments so the filtered context sits in the numerator and the ALL()-stripped grand total sits in the denominator.
 - The same date-hierarchy auto-grouping issue found in the Excel phase resurfaced in Power BI's default line chart behavior, collapsing all years' same-numbered months together (e.g., merging every January across all five years). Resolved by disabling Auto Date/Time in Power BI's options and binding chart axes to the plain Date field rather than the auto-generated hierarchy.
 
 ## Data Quality Note
-As established in the SQL phase and reconfirmed in Excel, Chinook's transactional data is synthetically generated: every customer has exactly 6–7 invoices, and invoice totals cluster around fixed multiples of a near-uniform $0.99 track price. The monthly revenue trend line chart on Page 4 reproduces this pattern (flat, with occasional spikes) and is accompanied by a caveat noting the finding reflects data generation rather than organic seasonality.
+As established in the SQL phase and reconfirmed in Excel, Chinook's transactional data is synthetically generated: every customer has exactly 6–7 invoices, and invoice totals cluster around fixed multiples of a near-uniform $0.99 track price. 
 
 ## Files
 - `Chinook PowerBI.pbix` - full interactive report
