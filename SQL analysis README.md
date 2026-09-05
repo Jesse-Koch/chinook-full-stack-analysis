@@ -42,7 +42,7 @@ Investigation into customer spend and revenue trends uncovered a structural data
 - Several queries included tables in the JOIN chain that were never referenced in the SELECT or GROUP BY, adding unnecessary complexity without affecting results, and were trimmed for clarity.
 
 ## Files
-chinook sql queries.sql — all queries organized by business question
+chinook sql queries.sql - all queries organized by business question
 
 ## Dataset
 Chinook sample database (MySQL): https://github.com/lerocha/chinook-database
