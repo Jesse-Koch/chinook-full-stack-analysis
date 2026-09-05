@@ -1,4 +1,5 @@
-## Chinook Full-Stack Analysis — Phase 1: SQL (MySQL)
+## Chinook Full-Stack Analysis
+## Phase 1: SQL (MySQL)
 *Part of a three-phase pipeline: SQL → Excel → Power BI. See the top-level README for the full project.*
 
 ## Overview
