@@ -13,7 +13,7 @@ Deliberate re-solving of several relational problems already handled in SQL, usi
 - **Stakeholder Summary** - the final presentable report: KPI cells, PivotTables, PivotCharts, and conditional formatting
 
 ## Skills Demonstrated
-- VLOOKUP and XLOOKUP, including XLOOKUP's built-in not-found fallback argument versus VLOOKUP requiring an external IFERROR() wrapper to achieve the same result
+- VLOOKUP and XLOOKUP, including XLOOKUP's built-in not-found fallback argument vs. VLOOKUP requiring an external IFERROR() wrapper to achieve the same result
 - Power Query Merge Queries (Left Outer join) as a visual equivalent to a SQL LEFT JOIN
 - PivotTables and PivotCharts, including Top 10 value filtering
 - PivotTable "Show Values As → % Difference From (previous)" for period-over-period growth, without a manual calculated field
