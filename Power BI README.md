@@ -20,7 +20,7 @@ Final stage of the pipeline. The Chinook database is connected directly (via MyS
 - **Executive Summary**: KPI cards (Total Revenue, Total Customers, Total Invoices, Avg Invoice Value), genre revenue chart, top 10 artists, headline finding
 - **Catalogue Performance**: Artist → Album → Track drill-down chart, genre revenue with % of total
 - **Customer & Employee**: employee portfolio table, revenue-by-country treemap, customer spend tier breakdown, reporting hierarchy table
-- **Revenue Stats**: YTD/prior-year/YoY growth cards, monthly revenue trend line chart, yearly summary table, data quality caveat
+- **Revenue Stats**: YTD/prior-year/YoY growth cards, monthly revenue trend line chart, yearly summary table
 
 ## Skills Demonstrated
 - **Data modeling**: star schema design, direct database connection
