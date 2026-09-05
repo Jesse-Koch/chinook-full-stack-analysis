@@ -29,8 +29,8 @@ Relational analysis of the Chinook digital media store database (11 tables: cust
 4. Among active sales reps: Jane Peacock generates the highest total spend ($833.04) and highest per-customer invoice by managing the most customers (21), but Steve Johnson's smaller portfolio (18 customers) generates the highest average spend per customer ($40.01).
 
 ## Data-quality finding: synthetic generation artifacts
-Investigation into customer spend and revenue trends uncovered a structural artifact in how Chinook's sales data was generated, traced through three verification queries:
-- Every customer has exactly 7 invoices (one has 6), which is not not organic customer behavior.
+Investigation into customer spend and revenue trends uncovered a structural data artifact in how Chinook's sales data was generated, using three verification queries:
+- Every customer has exactly 7 invoices (one has 6), which is not natural customer behavior.
 - Invoice totals cluster heavily around exact multiples of $0.99 (Chinook's near-uniform per-track price): $1.98 appears 111 times, $3.96 appears 57 times, etc.
 - At monthly level, revenue is flat at exactly $37.62 in the large majority of months across all five years, with only occasional random deviation.
 
