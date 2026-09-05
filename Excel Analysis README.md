@@ -4,7 +4,7 @@
 *Part of a three-phase pipeline: SQL → Excel → Power BI. See the top-level README for the full project.*
  
 ## Overview
-Second stage of the pipeline. : SQL query results exported as CSVs, then reshaped into a presentable stakeholder report using Excel.
+Second stage of the pipeline. SQL query results exported as CSVs, then reshaped into a presentable stakeholder report using Excel.
 Deliberate re-solving of several relational problems already handled in SQL, using Excel's own tools, to demonstrate the same underlying logic across two different environments.
  
 ## Workbook Structure
