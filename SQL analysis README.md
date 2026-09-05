@@ -10,7 +10,7 @@ Relational analysis of the Chinook digital media store database (11 tables: cust
 2. Who are the top customers by spend, and which countries generate the most revenue?
 3. Does each sales support rep's customer portfolio differ in value?
 4. How does revenue trend over the dataset's 5-year span, by year and by month?
-5. What is the company's reporting hierarchy (who manages whom)?
+5. What is the company's reporting hierarchy?
 6. Which genres dominate playlist curation (via the Playlist–Track many-to-many relationship)?
 
 ## Skills Demonstrated
@@ -23,9 +23,9 @@ Relational analysis of the Chinook digital media store database (11 tables: cust
 - YEAR()/MONTH() datetime grouping 
 
 ## Key Findings
-1. Rock dominates the catalog on every measure tested. It generates $826.65 in revenue (more than double the next genre, Latin, at $382.14) and appears 3,238 times across playlists, which is more than every other genre combined.
-2. Four of the top five revenue-generating artists (Iron Maiden, Metallica, Led Zeppelin, and others) are Rock/Metal acts, directly explaining Rock's genre-level dominance. Dozens of classical/orchestral artists generated only $0.99 each, from a single track sale.
-3. The reporting hierarchy (via self-join) shows two branches under General Manager Andrew Adams: Nancy Edwards oversees the three employees who actually manage customer accounts, while Michael Mitchell's branch has no customer-facing responsibilities, explaining why 5 of 8 employees showed no customer activity in the analysis.
+1. Rock dominates the catalogue on every measure tested. It generates $826.65 in revenue (more than double the next genre, Latin, at $382.14) and appears 3,238 times across playlists, which is more than every other genre combined.
+2. Four of the top five revenue-generating artists (Iron Maiden, Metallica, Led Zeppelin, and others) are Rock/Metal acts, directly explaining Rock's genre-level dominance. Most classical/orchestral artists generated only $0.99 each, from just one track sale.
+3. The reporting hierarchy (via self-join) shows two branches under General Manager Andrew Adams: Nancy Edwards oversees the three employees who actually manage customer accounts, while Michael Mitchell's branch has no customer responsibilities, explaining why 5 of 8 employees showed no customer activity in the analysis.
 4. Among active sales reps: Jane Peacock generates the highest total spend ($833.04) and highest per-customer invoice by managing the most customers (21), but Steve Johnson's smaller portfolio (18 customers) generates the highest average spend per customer ($40.01).
 
 ## Data-quality finding: synthetic generation artifacts
@@ -34,7 +34,7 @@ Investigation into customer spend and revenue trends uncovered a structural arti
 - Invoice totals cluster heavily around exact multiples of $0.99 (Chinook's near-uniform per-track price): $1.98 appears 111 times, $3.96 appears 57 times, etc.
 - At monthly level, revenue is flat at exactly $37.62 in the large majority of months across all five years, with only occasional random deviation.
 
-As a result, customer-spend and revenue-trend findings are presented as ##SQL technique demonstrations## rather than genuine business insight, a distinction actively verified through investigation rather than assumed. Catalog/popularity findings (genre, artist, playlist) are not subject to this limitation, since they reflect the underlying music library rather than the generated transaction data. 
+*As a result, customer-spend and revenue-trend findings are presented as SQL technique demonstrations rather than genuine business insight, a distinction actively verified through investigation rather than assumed. Catalog/popularity findings (genre, artist, playlist) are not subject to this limitation, since they reflect the underlying music library rather than the generated transaction data.*
 
 ## Notable Debugging Moments
 - An initial self-join for the employee hierarchy had its join condition reversed (matching direct reports instead of managers), silently building the wrong relationship direction — caught by tracing through what the join condition literally selects for.
